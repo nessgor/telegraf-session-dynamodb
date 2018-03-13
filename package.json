@@ -10,6 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/nessgor/telegraf-session-dynamodb.git"
   },
+  "keywords": [
+    "telegram",
+    "telegram bot",
+    "telegraf",
+    "bot framework",
+    "session",
+    "middleware",
+    "DynamoDB",
+    "Lambda",
+    "AWS"
+  ],
   "author": "Ness Li <nessli2002@gmail.com>",
   "license": "MIT",
   "bugs": {
