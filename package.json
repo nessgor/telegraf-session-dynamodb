@@ -1,0 +1,42 @@
+{
+  "name": "telegraf-session-dynamodb",
+  "version": "1.0.0",
+  "description": "DynamoDB session middleware for Telegraf",
+  "main": "lib/session.js",
+  "scripts": {
+    "test": "ava test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nessgor/telegraf-session-dynamodb.git"
+  },
+  "author": "Ness Li <nessli2002@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nessgor/telegraf-session-dynamodb/issues"
+  },
+  "homepage": "https://github.com/nessgor/telegraf-session-dynamodb#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "aws-sdk": "^2.209.0",
+    "telegraf": "^3.19.0"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.208.0",
+    "telegraf": "^3.19.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "(lib|example)/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "compileEnhancements": false,
+    "require": []
+  }
+}
