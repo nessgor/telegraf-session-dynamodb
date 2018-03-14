@@ -27,27 +27,16 @@
     "url": "https://github.com/nessgor/telegraf-session-dynamodb/issues"
   },
   "homepage": "https://github.com/nessgor/telegraf-session-dynamodb#readme",
+  "engines": {
+    "node": ">=6.10.3"
+  },
   "devDependencies": {
     "ava": "^0.25.0",
-    "aws-sdk": "^2.209.0",
+    "aws-sdk": "^2.208.0",
     "telegraf": "^3.19.0"
   },
   "peerDependencies": {
     "aws-sdk": "^2.208.0",
     "telegraf": "^3.19.0"
-  },
-  "ava": {
-    "files": [
-      "test/**/*.js"
-    ],
-    "source": [
-      "(lib|example)/**/*.js"
-    ],
-    "concurrency": 5,
-    "failFast": true,
-    "failWithoutAssertions": false,
-    "tap": true,
-    "compileEnhancements": false,
-    "require": []
   }
 }
