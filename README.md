@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nessgor/telegraf-session-dynamodb.svg?branch=master)](https://travis-ci.org/nessgor/telegraf-session-dynamodb)
+
 # AWS DynamoDB session middleware for Telegraf
 
 AWS DynamoDB powered session middleware for [Telegraf](https://github.com/telegraf/telegraf).
