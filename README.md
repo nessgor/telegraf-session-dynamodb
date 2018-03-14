@@ -97,3 +97,6 @@ bot.on('text', (ctx) => {
 })
 
 ```
+
+### Acknowledgement
+* [telegraf-session-redis](https://github.com/telegraf/telegraf-session-redis)

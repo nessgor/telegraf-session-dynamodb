@@ -1,6 +1,6 @@
 {
   "name": "telegraf-session-dynamodb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DynamoDB session middleware for Telegraf",
   "main": "lib/session.js",
   "scripts": {
@@ -29,6 +29,9 @@
   "homepage": "https://github.com/nessgor/telegraf-session-dynamodb#readme",
   "engines": {
     "node": ">=6.10.3"
+  },
+  "config": {
+    "engine-strict": true
   },
   "devDependencies": {
     "ava": "^0.25.0",
