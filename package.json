@@ -1,6 +1,6 @@
 {
   "name": "telegraf-session-dynamodb",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "DynamoDB session middleware for Telegraf",
   "main": "lib/session.js",
   "scripts": {
