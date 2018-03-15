@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/nessgor/telegraf-session-dynamodb.svg?branch=master)](https://travis-ci.org/nessgor/telegraf-session-dynamodb)
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) [![Build Status](https://travis-ci.org/nessgor/telegraf-session-dynamodb.svg?branch=master)](https://travis-ci.org/nessgor/telegraf-session-dynamodb) 
+[![bitHound Overall Score](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/badges/score.svg)](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb) [![bitHound Dependencies](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/badges/dependencies.svg)](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/master/dependencies/npm) [![bitHound Dev Dependencies](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/badges/devDependencies.svg)](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/master/dependencies/npm)
+
+[![NPM](https://nodei.co/npm/telegraf-session-dynamodb.png)](https://nodei.co/npm/telegraf-session-dynamodb/)
 
 # AWS DynamoDB session middleware for Telegraf
 
