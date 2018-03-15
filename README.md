@@ -100,5 +100,22 @@ bot.on('text', (ctx) => {
 
 ```
 
+### Local Unit Testing
+
+```js
+$ yarn
+
+$ yarn global add serverless
+
+$ docker pull lambci/lambda
+
+$ sls dynamodb install
+
+$ sls offline start -r ap-northeast-1 --noTimeout &
+
+$ yarn test:local
+
+```
+
 ### Acknowledgement
 * [telegraf-session-redis](https://github.com/telegraf/telegraf-session-redis)

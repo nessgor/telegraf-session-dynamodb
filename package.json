@@ -5,6 +5,7 @@
   "main": "lib/session.js",
   "scripts": {
     "test": "ava test"
+    "test:local": "export IS_OFFLINE=true && mocha --timeout 50000"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,8 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "aws-sdk": "^2.208.0",
+    "serverless-dynamodb-local": "^0.2.28",
+    "serverless-offline": "^3.18.0",
     "telegraf": "^3.19.0"
   },
   "peerDependencies": {
