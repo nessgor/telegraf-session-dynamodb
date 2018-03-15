@@ -76,7 +76,7 @@ dynamoDBSession.saveSession(key, session)
 
 * `dynamoDBConfig`:
   * `params`: 
-    * `TableName`: AWS DynamoDB Table to store session (default: *bot-session*)
+    * `TableName`: AWS DynamoDB Table to store session (default: *telegraf-session-dynamodb*)
   * `region`: AWS Region (default: *ap-northeast-1*)
 * `property`: context property name (default: `session`)
 * `getSessionKey`: session key resolver function `(ctx) => any`)
