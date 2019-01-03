@@ -112,6 +112,9 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+        TimeToLiveSpecification:
+          AttributeName: ttl
+          Enabled: true
 
 plugins:
   - serverless-offline
