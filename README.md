@@ -79,6 +79,7 @@ dynamoDBSession.saveSession(key, session)
     * `TableName`: AWS DynamoDB Table to store session (default: *telegraf-session-dynamodb*)
   * `region`: AWS Region (default: *ap-northeast-1*)
 * `property`: context property name (default: `session`)
+* `ttl`: Time To Live in minutes, -1 for never expire (default: `-1`)
 * `getSessionKey`: session key resolver function `(ctx) => any`)
 
 Default implementation of `getSessionKey`:
@@ -105,18 +106,34 @@ bot.on('text', (ctx) => {
 
 ### Local Unit Testing
 
-```js
-$ yarn
+```console
+foo@bar:~$ yarn
 
-$ yarn global add serverless
+foo@bar:~$ yarn global add serverless
 
-$ docker pull lambci/lambda
+foo@bar:~$ docker pull lambci/lambda
 
-$ sls dynamodb install
+foo@bar:~$ sls dynamodb install
 
-$ sls offline start -r ap-northeast-1 --noTimeout &
+foo@bar:~$ sls offline start -r ap-northeast-1 --noTimeout &
 
-$ yarn test:local
+foo@bar:~$ yarn test:local
+
+```
+Remarks: TTL will **NOT** work for DynamoDB Local
+
+### Remote Unit Testing
+
+1. Create the AWS DynamoDB Table in the desired AWS Region
+2. Use `SessionKey (String)` as primary key
+3. Set `ttl` as the TTL attribute in Manage TTL
+
+```bash
+foo@bar:~$ aws configure
+
+foo@bar:~$ yarn
+
+foo@bar:~$ yarn test
 
 ```
 
