@@ -1,5 +1,4 @@
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) [![Build Status](https://travis-ci.org/nessgor/telegraf-session-dynamodb.svg?branch=master)](https://travis-ci.org/nessgor/telegraf-session-dynamodb) 
-[![bitHound Overall Score](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/badges/score.svg)](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb) [![bitHound Dependencies](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/badges/dependencies.svg)](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/master/dependencies/npm) [![bitHound Dev Dependencies](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/badges/devDependencies.svg)](https://www.bithound.io/github/nessgor/telegraf-session-dynamodb/master/dependencies/npm)
 
 [![NPM](https://nodei.co/npm/telegraf-session-dynamodb.png)](https://nodei.co/npm/telegraf-session-dynamodb/)
 
@@ -14,8 +13,8 @@ AWS DynamoDB powered session middleware for [Telegraf](https://github.com/telegr
 
 ## Installation
 
-```js
-$ yarn add telegraf-session-dynamodb
+```bash
+foo@bar:~$ yarn add telegraf-session-dynamodb
 ```
 
 ## Example
@@ -79,6 +78,7 @@ dynamoDBSession.saveSession(key, session)
     * `TableName`: AWS DynamoDB Table to store session (default: *telegraf-session-dynamodb*)
   * `region`: AWS Region (default: *ap-northeast-1*)
 * `property`: context property name (default: `session`)
+* `ttl`: Time To Live in minutes, -1 for never expire (default: `-1`)
 * `getSessionKey`: session key resolver function `(ctx) => any`)
 
 Default implementation of `getSessionKey`:
@@ -105,18 +105,34 @@ bot.on('text', (ctx) => {
 
 ### Local Unit Testing
 
-```js
-$ yarn
+```bash
+foo@bar:~$ yarn
 
-$ yarn global add serverless
+foo@bar:~$ yarn global add serverless
 
-$ docker pull lambci/lambda
+foo@bar:~$ docker pull lambci/lambda
 
-$ sls dynamodb install
+foo@bar:~$ sls dynamodb install
 
-$ sls offline start -r ap-northeast-1 --noTimeout &
+foo@bar:~$ sls offline start -r ap-northeast-1 --noTimeout &
 
-$ yarn test:local
+foo@bar:~$ yarn test:local
+
+```
+Remarks: TTL will **NOT** work for DynamoDB Local
+
+### Remote Unit Testing
+
+1. Create the AWS DynamoDB Table in the desired AWS Region
+2. Use `SessionKey (String)` as primary key
+3. Set `ttl` as the TTL attribute in Manage TTL
+
+```bash
+foo@bar:~$ aws configure
+
+foo@bar:~$ yarn
+
+foo@bar:~$ yarn test
 
 ```
 
