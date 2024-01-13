@@ -1,12 +1,19 @@
 const expect = require('chai').expect;
-const Telegraf = require('telegraf');
+const { Telegraf } = require('telegraf');
+const { message } = require("telegraf/filters");
+
 const DynamoDBSession = require('../lib/session');
+
+const mockBotId = 'R2D2'; //change to live test telegram token
 
 describe('DynamoDB session for Telegraf', function () {
 	it('should be defined', (done) => {
-		const app = new Telegraf();
+		const app = new Telegraf(mockBotId);
+		app.telegram.callApi = () => {
+			return {}
+		}
 		const dynamoDBSession = new DynamoDBSession();
-		app.on('text', dynamoDBSession.middleware(), (ctx) => {
+		app.on(message("text"), dynamoDBSession.middleware(), (ctx) => {
 			expect(ctx).to.have.property('session');
 			expect(ctx.session).to.be.an('object');
 			done();
@@ -25,7 +32,10 @@ describe('DynamoDB session for Telegraf', function () {
 	});
 
 	it('should retrieve and save session', (done) => {
-		const app = new Telegraf();
+		const app = new Telegraf(mockBotId);
+		app.telegram.callApi = () => {
+			return {}
+		}
 		const dynamoDBSession = new DynamoDBSession();
 		const key = '1:1';
 		dynamoDBSession.getSession(key)
@@ -53,9 +63,12 @@ describe('DynamoDB session for Telegraf', function () {
 	});
 
 	it('should handle existing session', (done) => {
-		const app = new Telegraf();
+		const app = new Telegraf(mockBotId);
+		app.telegram.callApi = () => {
+			return {}
+		}
 		const dynamoDBSession = new DynamoDBSession();
-		app.on('text',
+		app.on(message("text"),
 			dynamoDBSession.middleware(),
 			(ctx) => {
 				expect(ctx).to.have.property('session');
@@ -82,9 +95,12 @@ describe('DynamoDB session for Telegraf', function () {
 	});
 
 	it('should handle not existing session', (done) => {
-		const app = new Telegraf();
+		const app = new Telegraf(mockBotId);
+		app.telegram.callApi = () => {
+			return {}
+		}
 		const dynamoDBSession = new DynamoDBSession();
-		app.on('text',
+		app.on(message("text"),
 			dynamoDBSession.middleware(),
 			(ctx) => {
 				expect(ctx).to.have.property('session');
@@ -106,9 +122,12 @@ describe('DynamoDB session for Telegraf', function () {
 	});
 
 	it('should handle session reset', (done) => {
-		const app = new Telegraf();
+		const app = new Telegraf(mockBotId);
+		app.telegram.callApi = () => {
+			return {}
+		}
 		const dynamoDBSession = new DynamoDBSession();
-		app.on('text',
+		app.on(message("text"),
 			dynamoDBSession.middleware(),
 			(ctx) => {
 				ctx.session = null

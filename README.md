@@ -119,6 +119,22 @@ foo@bar:~$ sls offline start -r ap-northeast-1 --noTimeout &
 foo@bar:~$ yarn test:local
 
 ```
+
+#### Or using a docker container for DynamoDb
+
+1. Follow the instructions on [AWS Documentation to run the container](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html) and start the container using  `docker-compose up -d`
+2. Download the NoSQL workbench from AWS [AWS NoSQL workbench download](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html)
+3. In the NoSQL workbench Operation builder, select DynamoDB local and create a connection to the DynamoDB container running on http://localhost:8000
+4. On the list of operations, select create table with your desired table name.
+5. In the Partition key field, enter `SessionKey` and select `String` in the dropdown on the right.
+6. Add the following keys to the `.env` file in your project:
+```.env
+IS_OFFLINE=true
+AWS_ACCESS_KEY=DUMMYIDEXAMPLE
+AWS_SECRET_ACCESS_KEY=DUMMYEXAMPLEKEY
+```
+7. Run `npm run test:local` or `yarn test:local`
+
 Remarks: TTL will **NOT** work for DynamoDB Local
 
 ### Remote Unit Testing
