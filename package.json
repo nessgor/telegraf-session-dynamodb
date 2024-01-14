@@ -48,6 +48,7 @@
   },
   "peerDependencies": {
     "aws-sdk": "^2.208.0",
-    "telegraf": "^4.8.5"
+    "telegraf": "^4.8.5",
+    "dotenv": "^16.3.1"
   }
 }

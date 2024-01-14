@@ -1,0 +1,3 @@
+[submodule "telegraf-session-dynamodb"]
+	path = telegraf-session-dynamodb
+	url = git@github.com:Damilare1/telegraf-session-dynamodb.git
